@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Circle</title>
+        <style type="text/css">
+            * {
+                padding: 0;
+                margin: 0;
+            }
+            
+            #circle {
+                border: solid 1px #c0c0c0;
+                border-radius: 80px;
+                box-sizing: border-box;
+                width: 160px;
+                height: 160px;
+            }
+        </style>
+        <script type="text/javascript" src="lib/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript" src="lib/jquery.domxy.js"></script>
+        <script type="text/javascript">
+            Math.toDegrees = function toDegrees(radians) {
+                "use strict";
+                return radians * 180 / Math.PI;
+            };
+            (function (global) {
+                "use strict";
+                // Write your awesome code here.
+                var $document = jQuery(document);
+                $document.ready(function ($) {
+                    var $circle = $('#circle'), radius = $circle.width() / 2, center, maxRad = 6.283185307179586;
+                    $circle.on('mousemove', function (e) {
+                        var radians = $circle.getAngle(e);
+                        console.log('Radians: ' + radians + ', Degrees: ' + Math.toDegrees(radians));
+                        console.log('X: ' + e.pageX + ', Y: ' + e.pageY);
+                    });
+                    $circle.getAngle = function getAngle(e) {
+                        var rad, axis;
+                        //pos = [$circle.getX(), $circle.getY()];
+                        //size = [$circle.width(), $circle.height()];
+                        axis = $circle.getCenter();
+                        rad = Math.atan2(axis[1] - e.pageY, e.pageX - axis[0]);
+                        if (rad < 0) {
+                            rad = maxRad + rad;
+                        }
+                        return rad;
+                    };
+                    $circle.getCenter = function getCenter() {
+                        return [$circle.getX() + ($circle.outerWidth() / 2), $circle.getY() + ($circle.outerHeight() / 2)];
+                    };
+                    window.$circle = $circle;
+                });
+            }(window));
+        </script>
+    </head>
+    <body>
+        <!-- Template by Jaycliff Arcilla -->
+        <div id="circle"></div>
+    </body>
+</html>

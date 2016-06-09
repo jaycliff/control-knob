@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Control Knob</title>
+        <!--
+            http://codepen.io/blucube/pen/cudAz
+            http://kaisarcode.com/javascript-rotate-dial
+            http://stackoverflow.com/questions/2676719/calculating-the-angle-between-the-line-defined-by-two-points
+            https://www.raywenderlich.com/9864/how-to-create-a-rotating-wheel-control-with-uikit
+            http://www.mathwarehouse.com/algebra/distance_formula/index.php
+            http://www.soultravelmultimedia.com/2013/05/11/40-outstanding-user-interface-knobs/
+        -->
+        <link rel="shortcut icon" href="https://myaccount.hetzner.co.za/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="css/normal.css" />
+        <style type="text/css">
+            @import url(http://fonts.googleapis.com/css?family=Varela+Round|Open+Sans:300);
+            * {
+                padding: 0;
+                margin: 0;
+            }
+            body {
+                background-color: #ffffff;
+                font-size: 100%;
+                font-family: "Open Sans", sans-serif;
+                color: #404040;
+                text-align: center;
+            }
+            .control-knob {
+                opacity: 0.5;
+            }
+            span.square {
+                border: solid 1px #c0c0c0;
+                display: inline-block;
+                height: 50px;
+                width: 50px;
+            }
+        </style>
+        <script type="text/javascript" src="lib/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript" src="lib/jquery.domxy.js"></script>
+        <script type="text/javascript" src="lib/jquery.mousewheel.min.js"></script>
+        <script type="text/javascript" src="lib/jquery-control-knob.js"></script>
+    </head>
+    <body>
+        <!-- Template by Jaycliff Arcilla -->
+        <div>
+            <span class="square"></span>
+            <span style="display: inline-block;" id="container"></span>
+            <span class="square"></span>
+        </div>
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                "use strict";
+                window.ck = $.createControlKnob({ min: -100, max: 100, value: 0 }).attachTo('#container').on('input change', function (event, value) {
+                    console.log('EVENT: ' + event.type + ', VALUE: ' + value);
+                });
+            });
+        </script>
+    </body>
+</html>
