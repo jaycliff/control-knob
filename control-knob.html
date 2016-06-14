@@ -51,7 +51,7 @@
         <script type="text/javascript">
             jQuery(document).ready(function ($) {
                 "use strict";
-                window.ck = $.createControlKnob({ min: -100, max: 100, value: 0 }).attachTo('#container').on('input change', function (event, value) {
+                window.ck = $.createControlKnob({ min: -100, max: 100, value: 0, numberOfBands: 15 }).attachTo('#container').on('input change', function (event, value) {
                     console.log('EVENT: ' + event.type + ', VALUE: ' + value);
                 });
             });
