@@ -27,13 +27,22 @@
                 text-align: center;
             }
             .control-knob {
-                opacity: 0.5;
+                opacity: 1;
             }
             span.square {
                 border: solid 1px #c0c0c0;
                 display: inline-block;
                 height: 50px;
                 width: 50px;
+            }
+            .control-knob .ck-band:after {
+                height: 0.3em;
+                left: -0.8em;
+                margin-top: -0.15em;
+                width: 0.5em;
+            }
+            .control-knob .active:after {
+                background-color: rgba(255, 0, 0, 0.5);
             }
         </style>
         <script type="text/javascript" src="lib/jquery-1.12.4.min.js"></script>
@@ -51,9 +60,12 @@
         <script type="text/javascript">
             jQuery(document).ready(function ($) {
                 "use strict";
-                window.ck = $.createControlKnob({ min: -100, max: 100, value: 0, numberOfBands: 15 }).attachTo('#container').on('input change', function (event, value) {
+                // numberOfBands works best with values that are multiples of (3 * odd number) and (5 * odd number)
+                window.ck = $.createControlKnob({ min: -100, max: 100, value: 0, numberOfBands: 45 }).attachTo('#container').on('input change', function (event, value) {
                     console.log('EVENT: ' + event.type + ', VALUE: ' + value);
-                });
+                }).getElement().on('mousedown', function (event) {
+                    console.log(event.preventDefault());
+                }).data('ck:host-object');
             });
         </script>
     </body>
