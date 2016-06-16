@@ -11,10 +11,10 @@
             http://www.mathwarehouse.com/algebra/distance_formula/index.php
             http://www.soultravelmultimedia.com/2013/05/11/40-outstanding-user-interface-knobs/
         -->
-        <link rel="shortcut icon" href="https://myaccount.hetzner.co.za/favicon.ico" type="image/x-icon" />
+        <!-- <link rel="shortcut icon" href="https://myaccount.hetzner.co.za/favicon.ico" type="image/x-icon" /> -->
         <link rel="stylesheet" type="text/css" href="css/normal.css" />
         <style type="text/css">
-            @import url(http://fonts.googleapis.com/css?family=Varela+Round|Open+Sans:300);
+            /* @import url(http://fonts.googleapis.com/css?family=Varela+Round|Open+Sans:300); */
             * {
                 padding: 0;
                 margin: 0;
@@ -27,12 +27,13 @@
                 text-align: center;
             }
             .control-knob {
-                opacity: 0.5;
+                opacity: 1;
             }
             span.square {
-                border: solid 1px #c0c0c0;
+                border: solid 1px #000000;
                 display: inline-block;
                 height: 50px;
+                opacity: 0.1;
                 width: 50px;
             }
             .control-knob .ck-band:after {
@@ -61,7 +62,7 @@
             jQuery(document).ready(function ($) {
                 "use strict";
                 // numberOfBands works best with values that are multiples of (3 * odd number) and (5 * odd number)
-                window.ck = $.createControlKnob({ min: -100, max: 100, value: 0, numberOfBands: 45 }).attachTo('#container').on('input change', function (event, value) {
+                window.ck = $.createControlKnob({ min: -100, max: 100, value: 0, numberOfBands: 39 }).attachTo('#container').on('input change', function (event, value) {
                     console.log('EVENT: ' + event.type + ', VALUE: ' + value);
                 }).getElement().on('mousedown', function (event) {
                     console.log(event.preventDefault());
