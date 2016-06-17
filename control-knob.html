@@ -50,6 +50,32 @@
         <script type="text/javascript" src="lib/jquery.domxy.js"></script>
         <script type="text/javascript" src="lib/jquery.mousewheel.min.js"></script>
         <script type="text/javascript" src="lib/jquery-control-knob.js"></script>
+        <script type="text/javascript">
+            if (typeof Number.valueByStep !== "function") {
+                Number.valueByStep = function valueByStep(value, step) {
+                    "use strict";
+                    if (typeof step !== "number") {
+                        step = 1;
+                    }
+                    return +((Math.round(value / step) * step).toFixed(Number.decimalDigitsLength(step)));
+                };
+            }
+            if (typeof Number.decimalDigitsLength !== "function") {
+                Number.decimalDigitsLength = function decimalDigitsLength(num) {
+                    "use strict";
+                    var string, dot_index;
+                    if (typeof num !== "number") {
+                        throw new TypeError('parameter must be a number');
+                    }
+                    string = String(num);
+                    dot_index = string.indexOf('.');
+                    if (dot_index < 0) {
+                        return 0;
+                    }
+                    return string.length - (dot_index + 1);
+                };
+            }
+        </script>
     </head>
     <body>
         <!-- Template by Jaycliff Arcilla -->
