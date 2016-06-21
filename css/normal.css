@@ -45,7 +45,7 @@
     -o-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
-    transition: transform 50ms ease-in;
+    /* transition: transform 50ms ease-in; */
 }
 .control-knob .ck-decal {
     display: block;
