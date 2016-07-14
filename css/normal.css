@@ -46,13 +46,6 @@
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
 }
-.control-knob .ck-transition .ck-handle {
-    -moz-transition: transform 0.2s;
-    -ms-transition: transform 0.2s;
-    -o-transition: transform 0.2s;
-    -webkit-transition: transform 0.2s;
-    transition: transform 0.2s;
-}
 .control-knob .ck-decal {
     display: block;
     height: 100%;
@@ -159,19 +152,14 @@
     -o-transition: all 180ms ease-out;
     transition: all 180ms ease-out;
 }
-.control-knob .active:after {
+.control-knob .ck-band.active:after {
     background-color: rgba(255, 0, 0, 0.5);
-    -webkit-transition: all 50ms ease-in;
-    -moz-transition: all 50ms ease-in;
-    -ms-transition: all 50ms ease-in;
-    -o-transition: all 50ms ease-in;
-    transition: all 50ms ease-in;
 }
-.control-knob .ck-transition .active:after {
-    background-color: rgba(255, 0, 0, 0.5);
-    -webkit-transition: all 0.2s;
+.control-knob .ck-transition .ck-handle,
+.control-knob .ck-transition .ck-band.active:after {
     -moz-transition: all 0.2s;
     -ms-transition: all 0.2s;
     -o-transition: all 0.2s;
+    -webkit-transition: all 0.2s;
     transition: all 0.2s;
 }
