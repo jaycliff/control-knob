@@ -88,7 +88,7 @@
             jQuery(document).ready(function ($) {
                 "use strict";
                 // numberOfBands works best with values that are multiples of (3 * odd number) and (5 * odd number)
-                window.ck = $.createControlKnob({ min: 0, max: 1, value: 0.22, step: 0.01, numberOfBands: 39 })
+                window.ck = $.createControlKnob({ min: 0, max: 1, value: 0.22, step: 0.01, numberOfBands: 39, useVerticalSwipe: true })
                     .attachTo('#container')
                     .on('mousedown focus mousewheel blur click mouseup keydown', function (event) {
                         var event_type = event.type;
