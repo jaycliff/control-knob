@@ -146,20 +146,12 @@
     left: -0.8em;
     top: 50%;
     margin-top: -0.2em;
-    -webkit-transition: all 180ms ease-out;
-    -moz-transition: all 180ms ease-out;
-    -ms-transition: all 180ms ease-out;
-    -o-transition: all 180ms ease-out;
-    transition: all 180ms ease-out;
+    -moz-transition: all 0.1s;
+    -ms-transition: all 0.1s;
+    -o-transition: all 0.1s;
+    -webkit-transition: all 0.1s;
+    transition: all 0.1s;
 }
 .control-knob .ck-band.active:after {
     background-color: rgba(255, 0, 0, 0.5);
-}
-.control-knob .ck-transition .ck-handle,
-.control-knob .ck-transition .ck-band.active:after {
-    -moz-transition: all 0.2s;
-    -ms-transition: all 0.2s;
-    -o-transition: all 0.2s;
-    -webkit-transition: all 0.2s;
-    transition: all 0.2s;
 }
